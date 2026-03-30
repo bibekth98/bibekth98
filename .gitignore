@@ -1,0 +1,25 @@
+# Environment / secrets
+.env
+*.env
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.eggs/
+*.egg
+.venv/
+venv/
+env/
+
+# Reports (generated at runtime)
+reports/
+
+# IDE
+.vscode/
+.idea/
+
+# macOS
+.DS_Store
