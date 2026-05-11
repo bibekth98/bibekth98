@@ -1,31 +1,36 @@
-import React, { useState } from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
-import * as LocalAuthentication from 'expo-local-authentication';
+# GradBridge
 
-export default function App() {
- const [result, setResult] = useState(null);
+Modern SaaS-style marketing site and UI previews for **GradBridge** — a career platform for international students in Australia.
 
- const _authenticate = async () => {
-    let result;
-    try {
-      result = await LocalAuthentication.authenticateAsync();
-      setResult(result);
-    } catch (e) {
-      console.log(e);
-    }
- };
+## Tech Stack
 
- return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text style={{ marginBottom: 20 }}>Authenticate with Fingerprint:</Text>
-      <TouchableOpacity onPress={_authenticate}>
-        <Text>Authenticate</Text>
-      </TouchableOpacity>
-      {result && (
-        <Text style={{ marginTop: 20 }}>
-          Authenticated: {result.success ? 'Yes' : 'No'}
-        </Text>
-      )}
-    </View>
- );
-}
+- Next.js 15 (App Router)
+- TypeScript
+- Tailwind CSS
+- Framer Motion
+- Lucide React
+
+## Routes
+
+- `/` Landing page
+- `/auth` Authentication UI (mock)
+- `/dashboard` Student dashboard preview
+- `/resume-builder` Resume builder preview
+- `/saved-jobs` Saved jobs UI
+- `/resume-preview` PDF-style resume preview UI
+
+## Run locally
+
+```bash
+npm install
+npm run dev
+```
+
+Then open `http://localhost:3000`.
+
+## Production build
+
+```bash
+npm run build
+npm run start
+```
