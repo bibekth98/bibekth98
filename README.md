@@ -28,6 +28,14 @@ npm run dev
 
 Then open `http://localhost:3000`.
 
+### Environment variable (optional)
+
+Set `NEXT_PUBLIC_SITE_URL` to your deployed URL for correct metadata/open graph URLs.
+
+```bash
+NEXT_PUBLIC_SITE_URL=https://your-domain.com
+```
+
 ## Production build
 
 ```bash

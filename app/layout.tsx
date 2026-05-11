@@ -12,8 +12,10 @@ const inter = localFont({
   variable: "--font-inter",
 });
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://example.com";
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://gradbridge.example"),
+  metadataBase: new URL(siteUrl),
   title: {
     default: "GradBridge | Career Platform for International Students in Australia",
     template: "%s | GradBridge",
@@ -25,7 +27,7 @@ export const metadata: Metadata = {
     description:
       "Career platform helping international students in Australia build resumes, find jobs, and grow with confidence.",
     type: "website",
-    url: "https://gradbridge.example",
+    url: siteUrl,
     siteName: "GradBridge",
   },
 };
