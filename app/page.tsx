@@ -6,9 +6,10 @@ import { Hero } from "@/components/hero";
 import { InternshipCard } from "@/components/internship-card";
 import { JobCard } from "@/components/job-card";
 import { Navbar } from "@/components/navbar";
+import { PlatformFeatureCard } from "@/components/platform-feature-card";
 import { Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
-import { features, guides, internships, jobs } from "@/data/content";
+import { features, guides, internships, jobs, platformModules } from "@/data/content";
 
 export default function Home() {
   return (
@@ -29,6 +30,24 @@ export default function Home() {
               {features.map((feature) => (
                 <Reveal key={feature.title}>
                   <FeatureCard {...feature} />
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="student-life-platform" className="px-6 py-14 sm:px-8">
+          <div className="mx-auto max-w-6xl">
+            <Reveal>
+              <SectionHeading
+                title="International Student Life Platform"
+                description="Discover practical student-life modules that help you save, settle in, and stay financially on track."
+              />
+            </Reveal>
+            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              {platformModules.map((module) => (
+                <Reveal key={module.title}>
+                  <PlatformFeatureCard {...module} />
                 </Reveal>
               ))}
             </div>

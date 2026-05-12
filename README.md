@@ -18,6 +18,11 @@ Modern SaaS-style marketing site and UI previews for **GradBridge** — a career
 - `/resume-builder` Resume builder preview
 - `/saved-jobs` Saved jobs UI
 - `/resume-preview` PDF-style resume preview UI
+- `/discounts` Student discounts module
+- `/accommodation` Student housing module
+- `/marketplace` Student marketplace module
+- `/budget` Student budget tracker module
+- `/guides` Student life guides module
 
 ## Run locally
 
