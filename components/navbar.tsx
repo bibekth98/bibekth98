@@ -13,7 +13,7 @@ const moduleLinks = [
   { label: "Accommodation", href: "/accommodation" },
   { label: "Marketplace", href: "/marketplace" },
   { label: "Budget", href: "/budget" },
-  { label: "Guides", href: "/guides" },
+  { label: "Life Guides", href: "/guides" },
 ];
 
 const navLinks = [...coreLinks, ...moduleLinks];
