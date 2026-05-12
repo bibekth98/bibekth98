@@ -17,6 +17,8 @@ const moduleLinks = [
 ];
 
 const navLinks = [...coreLinks, ...moduleLinks];
+const navAriaLabel = (href: string, label: string) =>
+  href.startsWith("#") ? `Jump to ${label} section` : `Go to ${label} page`;
 
 export function Navbar() {
   return (
@@ -33,7 +35,7 @@ export function Navbar() {
             <li key={link.label}>
               <Link
                 href={link.href}
-                aria-label={link.href.startsWith("#") ? `Jump to ${link.label} section` : `Go to ${link.label} page`}
+                aria-label={navAriaLabel(link.href, link.label)}
                 className="transition hover:text-black dark:hover:text-white"
               >
                 {link.label}
@@ -55,7 +57,7 @@ export function Navbar() {
                 <li key={`mobile-${link.label}`}>
                   <Link
                     href={link.href}
-                    aria-label={link.href.startsWith("#") ? `Jump to ${link.label} section` : `Go to ${link.label} page`}
+                    aria-label={navAriaLabel(link.href, link.label)}
                     className="block rounded-lg px-3 py-2 text-zinc-700 transition hover:bg-zinc-100 hover:text-black dark:text-zinc-300 dark:hover:bg-zinc-800 dark:hover:text-white"
                   >
                     {link.label}

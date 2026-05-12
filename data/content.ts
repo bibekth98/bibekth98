@@ -123,7 +123,7 @@ export const platformModules: Array<{
     cta: "Explore Budget",
   },
   {
-    title: "Guides",
+    title: "Student Guides",
     description: "Read practical tips for settling in, finding work, and thriving in Australia.",
     icon: "guides",
     href: "/guides",
