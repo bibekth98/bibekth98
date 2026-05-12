@@ -1,6 +1,7 @@
 import { Sparkles } from "lucide-react";
 
 export type FeatureIcon = "resume" | "cover" | "jobs" | "internships" | "guides" | "templates";
+export type PlatformModuleIcon = "discounts" | "accommodation" | "marketplace" | "budget" | "guides";
 
 export const features: Array<{ title: string; description: string; icon: FeatureIcon }> = [
   {
@@ -83,6 +84,50 @@ export const guides = [
     title: "Interview preparation tips",
     excerpt: "Practice frameworks and confidence boosters for your next interview.",
     readTime: "8 min read",
+  },
+];
+
+export const platformModules: Array<{
+  title: string;
+  description: string;
+  icon: PlatformModuleIcon;
+  href: string;
+  cta: string;
+}> = [
+  {
+    title: "Discounts",
+    description: "Save on groceries, transport, and essential services with student-first deals.",
+    icon: "discounts",
+    href: "/discounts",
+    cta: "Explore Discounts",
+  },
+  {
+    title: "Accommodation",
+    description: "Find shared rentals and student housing options with practical move-in insights.",
+    icon: "accommodation",
+    href: "/accommodation",
+    cta: "Explore Accommodation",
+  },
+  {
+    title: "Marketplace",
+    description: "Buy and sell furniture, books, bikes, and electronics within the student community.",
+    icon: "marketplace",
+    href: "/marketplace",
+    cta: "Explore Marketplace",
+  },
+  {
+    title: "Budget Tracker",
+    description: "Track weekly spend, recurring costs, and savings goals in one simple overview.",
+    icon: "budget",
+    href: "/budget",
+    cta: "Explore Budget",
+  },
+  {
+    title: "Student Life Guides",
+    description: "Read practical tips for settling in, finding work, and thriving in Australia.",
+    icon: "guides",
+    href: "/guides",
+    cta: "Explore Guides",
   },
 ];
 
