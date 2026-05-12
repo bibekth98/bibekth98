@@ -31,7 +31,11 @@ export function Navbar() {
         <ul className="hidden items-center gap-5 text-sm text-zinc-600 md:flex dark:text-zinc-300">
           {navLinks.map((link) => (
             <li key={link.label}>
-              <Link href={link.href} className="transition hover:text-black dark:hover:text-white">
+              <Link
+                href={link.href}
+                aria-label={link.href.startsWith("#") ? `Jump to ${link.label} section` : `Go to ${link.label} page`}
+                className="transition hover:text-black dark:hover:text-white"
+              >
                 {link.label}
               </Link>
             </li>
@@ -40,7 +44,10 @@ export function Navbar() {
         <div className="flex items-center gap-3">
           <ThemeToggle />
           <details className="relative md:hidden">
-            <summary className="cursor-pointer rounded-lg border border-black/15 px-3 py-2 text-xs font-medium text-zinc-700 transition hover:border-black hover:text-black dark:border-white/20 dark:text-zinc-300 dark:hover:border-white dark:hover:text-white">
+            <summary
+              aria-label="Toggle navigation menu"
+              className="cursor-pointer rounded-lg border border-black/15 px-3 py-2 text-xs font-medium text-zinc-700 transition hover:border-black hover:text-black dark:border-white/20 dark:text-zinc-300 dark:hover:border-white dark:hover:text-white"
+            >
               Menu
             </summary>
             <ul className="absolute right-0 mt-2 w-56 space-y-1 rounded-xl border border-black/10 bg-white p-2 text-sm shadow-lg dark:border-white/15 dark:bg-zinc-900">
@@ -48,6 +55,7 @@ export function Navbar() {
                 <li key={`mobile-${link.label}`}>
                   <Link
                     href={link.href}
+                    aria-label={link.href.startsWith("#") ? `Jump to ${link.label} section` : `Go to ${link.label} page`}
                     className="block rounded-lg px-3 py-2 text-zinc-700 transition hover:bg-zinc-100 hover:text-black dark:text-zinc-300 dark:hover:bg-zinc-800 dark:hover:text-white"
                   >
                     {link.label}
