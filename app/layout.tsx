@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import "./globals.css";
+import { ClerkProvider } from "@clerk/nextjs";
 import { ThemeProvider } from "@/components/providers/theme-provider";
+import { CookieConsentBanner } from "@/components/cookie-consent-banner";
+import { env } from "@/lib/env";
+import "./globals.css";
 
 const inter = localFont({
   src: [
@@ -12,7 +15,7 @@ const inter = localFont({
   variable: "--font-inter",
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://example.com";
+const siteUrl = env.siteUrl;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -21,14 +24,17 @@ export const metadata: Metadata = {
     template: "%s | GradBridge",
   },
   description:
-    "Build resumes, craft cover letters, and discover student jobs and internships across Australia with GradBridge.",
+    "Build resumes, craft cover letters, and discover student jobs, accommodation, and marketplace opportunities in Australia with GradBridge.",
   openGraph: {
     title: "GradBridge",
     description:
-      "Career platform helping international students in Australia build resumes, find jobs, and grow with confidence.",
+      "International student life platform for jobs, accommodation, marketplace, and career growth in Australia.",
     type: "website",
     url: siteUrl,
     siteName: "GradBridge",
+  },
+  alternates: {
+    canonical: siteUrl,
   },
 };
 
@@ -38,12 +44,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning className={`${inter.variable} h-full`}>
-      <body className="min-h-full bg-zinc-50 font-sans text-zinc-900 antialiased transition-colors dark:bg-zinc-950 dark:text-zinc-50">
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-          {children}
-        </ThemeProvider>
-      </body>
-    </html>
+    <ClerkProvider>
+      <html lang="en" suppressHydrationWarning className={`${inter.variable} h-full`}>
+        <body className="min-h-full bg-zinc-50 font-sans text-zinc-900 antialiased transition-colors dark:bg-zinc-950 dark:text-zinc-50">
+          <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+            {children}
+            <CookieConsentBanner />
+          </ThemeProvider>
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }
