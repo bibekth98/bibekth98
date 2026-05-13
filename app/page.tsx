@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { CTASection } from "@/components/cta-section";
 import { BlogCard } from "@/components/blog-card";
 import { FeatureCard } from "@/components/feature-card";
@@ -8,9 +9,12 @@ import { JobCard } from "@/components/job-card";
 import { Navbar } from "@/components/navbar";
 import { Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
-import { features, guides, internships, jobs } from "@/data/content";
+import { features, guides, internships } from "@/data/content";
+import { listPublicListings } from "@/lib/listings";
 
-export default function Home() {
+export default async function Home() {
+  const jobs = await listPublicListings("jobs");
+
   return (
     <>
       <Navbar />
@@ -40,16 +44,19 @@ export default function Home() {
             <Reveal>
               <SectionHeading
                 title="Student jobs across Australia"
-                description="Explore student-friendly opportunities with flexible hours and clear application flows."
+                description="Listings are pulled from Supabase and managed through the admin panel."
               />
             </Reveal>
             <div className="grid gap-5 md:grid-cols-2">
               {jobs.map((job) => (
-                <Reveal key={job.role}>
-                  <JobCard {...job} />
+                <Reveal key={job.id}>
+                  <JobCard role={job.title} company={job.contact_email} location={job.location} type={job.price_text} />
                 </Reveal>
               ))}
             </div>
+            <Link href="/jobs" className="mt-6 inline-flex text-sm font-medium text-zinc-700 underline dark:text-zinc-200">
+              Browse all job listings
+            </Link>
           </div>
         </section>
 
